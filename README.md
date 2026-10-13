@@ -1,21 +1,12 @@
 # MCP 工具网关 · 教学可跑版
 
-面向简历项目「MCP 工具网关」的 **教学可跑版**：用与官方一致的 JSON-RPC 形状（`tools/list` / `tools/call`）暴露只读 SQL、HTTP GET、文件检索三类工具，并演示自建安全边界（SELECT-only、域名白名单防 SSRF、目录沙箱、审计日志）。
+MCP 工具网关的 **教学可跑版**：用与官方一致的 JSON-RPC 形状（`tools/list` / `tools/call`）暴露只读 SQL、HTTP GET、文件检索三类工具，并演示自建安全边界（SELECT-only、域名白名单防 SSRF、目录沙箱、审计日志）。
 
 > **重要说明（请先读）**  
 > 这是「**教学可跑版**」，不是完整生产栈。  
 > - **本仓库**：内存假库 + 本地 `data/` 文件 + 标准库 HTTP；零第三方依赖即可跑通协议与边界。  
-> - **生产环境**：真 **MySQL**、真实 HTTP 业务接口、更多工具（简历约 9 个）、stdio / SSE 接入 Cursor、Claude Desktop 与自研 Agent。  
+> - **生产环境**：真 **MySQL**、真实 HTTP 业务接口、可扩展为更多工具、stdio / SSE 接入 Cursor、Claude Desktop 与自研 Agent。  
 > - **不变的部分**：MCP 消息形状、工具封装方式、**安全边界逻辑**——协议与边界和线上一致，换数据源即可。
-
-## 面试官 / HR 可以怎么理解
-
-| 简历说法 | 本仓库能演示什么 |
-|---------|------------------|
-| MCP 统一对接 | `tools/list`、`tools/call` JSON-RPC 与官方形状对齐 |
-| 封装 MySQL / HTTP / 文件 | 三个核心 tool；其余工具同一套 list/call |
-| 安全边界自己守 | SELECT-only + 自动 LIMIT；HTTP 白名单防 SSRF；路径不得越出 `data/`；审计写入日志 |
-| Agent 编排 | 口述见 [`面试口述稿.md`](./面试口述稿.md)（LangGraph 五节点等；本 demo 聚焦网关侧） |
 
 ## 环境
 
@@ -63,7 +54,6 @@ mcp-gateway/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
-├── 面试口述稿.md
 ├── data/notes.md           # 文件检索样例
 ├── src/
 │   ├── mcp_core.py         # 工具实现 + JSON-RPC 处理 + 安全边界
@@ -74,7 +64,7 @@ mcp-gateway/
 └── 演示/                   # 可选截图；audit.log 运行时生成（已 gitignore）
 ```
 
-## 安全边界一览（面试高频）
+## 安全边界一览
 
 | 工具 | 边界 |
 |------|------|

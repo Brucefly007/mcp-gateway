@@ -1,4 +1,4 @@
-"""步骤 3：故意踩边界——这些请求应该被拒绝（面试高频）。"""
+"""步骤 3：故意踩边界——这些请求应该被拒绝。"""
 from __future__ import annotations
 
 import json
@@ -23,7 +23,6 @@ def main() -> None:
         err = resp["result"].get("isError")
         print(f"[{title}] isError={err}")
         print(f"  → {text}\n")
-    print("口述提示：MCP 不管权限；SELECT-only、白名单、目录沙箱、审计日志是我自己加的。")
 
 
 if __name__ == "__main__":

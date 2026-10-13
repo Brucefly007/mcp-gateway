@@ -35,7 +35,6 @@ def main() -> None:
         print(json.dumps(req, ensure_ascii=False, indent=2))
         print("--- 结果 ---")
         print(json.dumps(resp, ensure_ascii=False, indent=2))
-    print("\n口述提示：tools/call 进来 name + arguments，出去 content 文本；错误时 isError=true。")
 
 
 if __name__ == "__main__":

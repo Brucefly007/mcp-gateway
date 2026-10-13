@@ -1,6 +1,6 @@
 """
 教学用 MCP 核心：JSON-RPC 形状对齐官方 tools/list、tools/call。
-零第三方依赖。数据源是内存假库 + 本地文件，边界逻辑与简历一致。
+零第三方依赖。数据源是内存假库 + 本地文件，安全边界在本文件内实现。
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 AUDIT_LOG = ROOT / "演示" / "audit.log"
 
-# 简历同款：假 MySQL（仅演示 SELECT + LIMIT）
+# 教学演示用假 MySQL（仅演示 SELECT + LIMIT）
 FAKE_DB = {
     "orders": [
         {"id": 1001, "sku": "BAG-A01", "status": "已发货", "city": "保定"},

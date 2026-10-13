@@ -1,2 +1,2 @@
 # 本目录零第三方依赖：系统自带 Python 3.10+ 即可跑通。
-# 真实 Cursor / Claude Desktop 接入时再用官方 mcp SDK；面试口述与协议形状在这里已经对齐。
+# 真实 Cursor / Claude Desktop 接入时再用官方 mcp SDK；本仓库已对齐协议形状。
